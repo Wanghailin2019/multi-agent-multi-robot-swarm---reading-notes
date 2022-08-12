@@ -609,6 +609,124 @@ Nanorobotics [^67], [^189], [^233] 基于构建许多微型或纳米级机器人
 
 #### 2.3.1 正向运动学
 
+#### 2.3.2 逆向运动学
+
+
+
+### 2.4 控制
+
+#### 2.4.1 轨迹误差补偿
+
+#### 2.4.2 集群机器人的控制器
+
+
+
+### 2.5 集群机器人硬件
+
+最后，我们仔细研究了一些选定的群体机器人硬件示例。最常见的设计是一个相当小的移动机器人（例如，直径在 4 到 12 厘米之间），带有用于接近感应的差动驱动和红外传感器，但是也有一些特殊的设计。
+
+#### 2.5.1 s-bot
+
+最具标志性的硬件设计之一是 swarmbots 项目 [^288] 的“s-bot”（见图 2.11）。到今天，它已经有点过时了，但早在 2004 年，它就成为了群体机器人和机器人技术的一种了不起的方法。它是一个相当小的机器人，直径为 12 厘米，高度为 15 厘米，重量为 660 克。它的两个锂离子电池允许能量自主超过 1 小时。机器人控制器基于 400 MHz 定制 XScale CPU 板，具有 64 MB RAM 和 32 MB 闪存。机器人是通过 WiFi 访问的，这是一个很好的调试功能。机器人的执行器是两个树（即轮子和履带的组合）、炮塔旋转、刚性夹持器升降和一个刚性夹持器。最初的设计包括一个 3-DOF 侧臂和一个侧臂夹持器，后来被遗漏了。该机器人在炮塔周围有八个 RGB 发光二极管，在抓手中有红色发光二极管。该机器人拥有数量惊人的传感器：炮塔周围有 15 个红外传感器，机器人下方有 4 个红外传感器，除抓手外的所有自由度上的位置传感器，所有主要自由度上的力和速度传感器，两个湿度传感器，两个温度传感器、炮塔周围的 8 个环境光传感器、4 个加速度计（允许 3D 定向）、一个 640×480分辨率的相机传感器，该传感器具有基于球面镜的定制光学器件，可提供全向视觉、四个麦克风、两轴结构变形传感器、以及夹持器中的光学屏障。使用该机器人进行了许多实验，包括进化群机器人的实验 [^100], [^383]。 s-bot 的基本设计后来被重新设计为不同的版本，称为“marXbot”[^49] 和 Swarmanoid 项目中的 foot-bot [^98]。
+
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="pictures\figure2-11.png" width="65%" alt="">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;">图2-11</div>
+</center>
+
+​                                                                              *图2-11 五个s-bot（直径12厘米）展示了他们之间相互物理连接的能力。*
+
+#### 2.5.2 I-SWARM
+
+群体机器人硬件研究的另一大进步是 I-SWARM 项目 [^358]，如 <a href="#1.7.1 任务和集群机器人项目案例">1.7.1节</a>。 ISWARM 的雄心勃勃的目标是开发尺寸为 1×1×1 $mm^3$ 的小型群机器人。虽然这个限制后来稍微放宽到 3×3×3 $mm^3$，但很明显这样的设计会带来很多挑战。机器人（见图 2.12）没有电池，但由高效太阳能电池供电。该机器人没有轮子，而是由三个振动的压电腿（滑棒运动）移动。机器人-机器人通信由四个红外收发器实现。机器人有一个振动压电针作为传感器，板载电子设备是一个可重新编程的 ASIC（即定制芯片设计）。由于 ASIC 中的问题，最终的机器人无法完全发挥作用，因为没有足够的资金来进行多次设计迭代。尽管如此，这是一项了不起的成就，而且知识现在就在那里。任何有足够资金的公司都可以开始制造这个微型机器人。潜在的应用可能是清洁和监控机器难以触及的部分的任务。
+
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="pictures\figure2-12.png" width="50%" alt="">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;">图2-12</div>
+</center>
+
+​                                                                          *图2-12 Seyfried等人[^358]等人开发的I-SWARM 微型集群机器人(3×3×3 $mm^3$)*
+
+#### 2.5.3 Alice
+
+微型机器人“Alice”是一个相当小的群体机器人的另一个例子（见图 2.13）。它是由 Caprari 等人开发的。 [^62] 尺寸为 22×21×20 $mm^3$ 或 9.24 $cm^3$。它有一个 PIC 微控制器、一个 NiMH 可充电电池和柔性 PCB。一个真正的例外是制表商 Swatch 提供的两个“Swatch”电机。那时小型电动机很少见。
+
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="pictures\figure2-13.png" width="50%" alt="">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;">图2-13</div>
+</center>
+
+​                                                                                                         *Alice微型机器人，22×21×20 $mm^3$*
+
+#### 2.5.4 Kilobot
+
+目前在群体机器人研究中流行的群体机器人是“Kilobot”[^331], [^376]。它也相对较小，直径为 33 毫米，高度为 34 毫米（见图 2.14）。 Kilobot 的整体设计似乎受到了 I-SWARM 机器人的启发，因为它也有振动腿而不是轮子（滑杆运动）。控制器是 Atmega 328（8 位，8MHz），具有 32 KB 闪存、1 KB EEPROM 和 2 KB SRAM。机器人有锂离子电池。通过地面反射的红外光（红外收发器指向下方）进行长达 7 厘米的通信。可以通过信号强度估计相邻 Kilobot 的距离信息。该机器人有一个 RGB LED、一个环境光传感器和两个振动电机。它们是独立可控的，因此实现了差动驱动。这个机器人被用于迄今为止报道的最大的机器人实验中[^332]。实验是用 1024 个机器人完成的。因此，Kilobot 这个名字似乎是在对该实验的预期中出现的。
+
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="pictures\figure2-14.png" width="50%" alt="">
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;">图2-14</div>
+</center>
+
+​                                                                                                          *图2-14 Kiobot集群机器（直径33mm）*
+
+Kilobot 的一个缺点是，由于采用了振动腿技术，因此速度非常慢。另一个与机器人没有直接关系的问题是在实验中处理如此大量的机器人的难度。所有机器人都需要可靠地工作，但例如，为了充电，它们需要被处理。如果人类操作员必须手动处理它们甚至可能校准它们，那么处理 1000 个机器人会带来很多开销。即使这 1000 个机器人中的每一个只需要关注两分钟，完成这项任务也需要 33 多个小时。
+
+#### 2.5.5 其他的集群机器人
+
+
+
+### 2.6 Further Reading
+
+
+
+### 2.7 任务
+
+#### 2.7.1 任务一：差动转向运动学
+
+#### 2.7.2 任务二：势场控制
+
+#### 2.7.3 任务三：单个机器人的行为
+
+
+
+## 第三章 简要介绍几乎所有内容
+
+“And what happens to that incredibly complex memory bank that remembers the whole system during these periods of 'swarming'?"
+
+——Stanislaw Lem, The Invincible
+
+"We task off into the cosmos, ready for anything: for solitude, for hardship, for exhaustion, death.[...] A single world, our own, suffices us; but we can't accept it for what it is."
+
+——Stanislaw Lem, Solaris
+
+
+
+
+
 
 
 
